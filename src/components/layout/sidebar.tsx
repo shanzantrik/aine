@@ -9,7 +9,6 @@ import {
   GraduationCap,
   DollarSign,
   Package,
-  FileText,
   BarChart3,
   Settings,
   ChevronDown,

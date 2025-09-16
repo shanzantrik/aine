@@ -3,9 +3,8 @@
 import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { BarChart3, Download, DollarSign, TrendingUp, TrendingDown, Calendar, Users, GraduationCap } from 'lucide-react'
+import { BarChart3, Download, DollarSign, TrendingUp, TrendingDown } from 'lucide-react'
 import { useTheme } from '@/contexts/theme-context'
 
 export default function FinancialReportsPage() {

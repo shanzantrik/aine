@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Plus, Search, Filter, Download } from 'lucide-react'
-import Link from 'next/link'
 
 export default async function StudentsPage() {
   const supabase = await createClient()

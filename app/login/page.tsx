@@ -1,12 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Footer } from '@/components/layout/footer'
 
 export default function LoginPage() {
@@ -14,7 +10,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const router = useRouter()
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -36,7 +31,7 @@ export default function LoginPage() {
         await new Promise(resolve => setTimeout(resolve, 100))
 
         // Try to get user role from users table, but don't fail if user doesn't exist
-        const { data: userData, error: userError } = await supabase
+        const { error: userError } = await supabase
           .from('users')
           .select('role')
           .eq('id', data.user.id)
@@ -54,7 +49,7 @@ export default function LoginPage() {
         // Use window.location for a full page reload to ensure session is properly established
         window.location.href = '/dashboard'
       }
-    } catch (err) {
+    } catch (error) {
       setError('An unexpected error occurred')
     } finally {
       setLoading(false)

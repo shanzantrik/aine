@@ -2,7 +2,6 @@ import { createClient } from '@/lib/auth'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import {
   DollarSign,
   TrendingUp,
@@ -21,12 +20,10 @@ export default async function FinancePage() {
   // Fetch financial data
   const [
     { count: totalStudents },
-    { count: totalFaculty },
     { data: recentFees },
     { data: recentExpenses }
   ] = await Promise.all([
     supabase.from('students').select('*', { count: 'exact', head: true }),
-    supabase.from('faculty').select('*', { count: 'exact', head: true }),
     supabase.from('fees').select('*').order('created_at', { ascending: false }).limit(5),
     supabase.from('expenses').select('*').order('created_at', { ascending: false }).limit(5)
   ])

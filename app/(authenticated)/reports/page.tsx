@@ -1,7 +1,6 @@
 import { createClient } from '@/lib/auth'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import {
   BarChart3,
   FileText,
@@ -20,20 +19,17 @@ export default async function ReportsPage() {
   // Fetch data for reports
   const [
     { count: totalStudents },
-    { count: totalFaculty },
     { data: recentFees },
     { data: recentExpenses },
     { data: stockItems }
   ] = await Promise.all([
     supabase.from('students').select('*', { count: 'exact', head: true }),
-    supabase.from('faculty').select('*', { count: 'exact', head: true }),
     supabase.from('fees').select('*').order('created_at', { ascending: false }).limit(10),
     supabase.from('expenses').select('*').order('created_at', { ascending: false }).limit(10),
     supabase.from('stock_items').select('*').order('created_at', { ascending: false }).limit(10)
   ])
 
   const totalFees = recentFees?.reduce((sum, fee) => sum + fee.amount, 0) || 0
-  const totalExpenses = recentExpenses?.reduce((sum, expense) => sum + expense.amount, 0) || 0
   const totalStockValue = stockItems?.reduce((sum, item) => sum + (item.qty_available * item.unit_price), 0) || 0
 
   const reportCategories = [

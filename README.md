@@ -1,4 +1,4 @@
-# NIMS - Nursing Institute Management System
+# NIMS - Nursing Institute Management System by Shantanu Goswamißß
 
 A comprehensive management system built with Next.js 15 and Supabase for nursing institutes.
 

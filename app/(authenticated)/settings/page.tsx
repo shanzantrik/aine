@@ -4,22 +4,14 @@ import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Badge } from '@/components/ui/badge'
 import { Switch } from '@/components/ui/switch'
 import {
-  Settings,
-  User,
   Shield,
   Bell,
   Palette,
   Database,
-  Mail,
-  Phone,
-  MapPin,
-  Globe,
   Save,
   Edit,
-  Key,
   Users,
   Building
 } from 'lucide-react'
